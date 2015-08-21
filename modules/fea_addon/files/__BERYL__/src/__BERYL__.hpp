@@ -7,8 +7,6 @@ class __BERYL_CNAME__ : public fea::Application
     public:
         __BERYL_CNAME__();
     protected:
-        virtual void setup(const std::vector<std::string>& args) override;
-        virtual void destroy() override; 
         virtual void loop() override;
     private:
         void handleInput();

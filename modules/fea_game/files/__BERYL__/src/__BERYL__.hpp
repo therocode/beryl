@@ -14,13 +14,11 @@ class __BERYL_CNAME__ : public fea::Application,
         ~__BERYL_CNAME__();
         void handleMessage(const QuitMessage& message) override;
     protected:
-        virtual void setup(const std::vector<std::string>& args) override;
-        virtual void destroy() override; 
         virtual void loop() override;
     private:
         fea::MessageBus mBus;
-        fea::Renderer2D mRenderer;
         fea::Window mWindow;
+        fea::Renderer2D mRenderer;
         fea::InputHandler mFeaInputHandler;
 
         InputHandler mInputHandler;
