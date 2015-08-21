@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+import sys
+import os
+import subprocess
+from distutils.dir_util import copy_tree
+
+beryl_dir = "/home/tobbe/projects/beryl"
+beryl_module_dir = os.path.join(beryl_dir, "modules")
+
+if len(sys.argv) < 2:
+    print("error, no module given")
+    exit()
+
+module = sys.argv[1]
+
+if len(sys.argv) < 3:
+    print("error, no target directory given")
+    exit()
+
+target_dir = sys.argv[2]
+
+module_dir = os.path.join(beryl_module_dir, module)
+
+if not os.path.isdir(module_dir):
+    print("no such module '" + module)
+    exit()
+
+print("loading module '" + module + "' from '" + module_dir + "'")
+
+module_file_dir = os.path.join(module_dir, "files")
+
+if os.path.isdir(module_file_dir):
+    print("copying module template files")
+    copy_tree(module_file_dir, target_dir)
+else:
+    print("module has no template files")
+
+script_file = os.path.join(module_dir, "script")
+
+if os.path.isfile(script_file):
+    print("executing module script file")
+    arg_list = sys.argv[3:]
+    subprocess.Popen(script_file + " " + target_dir + " " + " ".join(arg_list), shell=True)
+else:
+    print("module has no script to run")
