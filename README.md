@@ -13,11 +13,15 @@ Every Beryl module has at least one of the following:
 
 Beryl is executed as follows:
 
+```
   ./beryl <module_name> <target_directory> [one or several module script specific arguments]
+```
 
 Example for the fea_game module which instantiates a template project for the Feather Kit game framework:
 
+```
   ./beryl fea_game . mygame 1920 1080
+```
 
 This will instantiate the template for fea_game in the current directory with mygame and 1920 1080 as arguments for the fea_game module (project name and screen resolution).
 
