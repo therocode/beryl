@@ -4,7 +4,7 @@ import os
 import subprocess
 from distutils.dir_util import copy_tree
 
-beryl_dir = "/home/tobbe/projects/beryl"
+beryl_dir = os.path.dirname(os.path.realpath(__file__))
 beryl_module_dir = os.path.join(beryl_dir, "modules")
 
 if len(sys.argv) < 2:

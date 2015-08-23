@@ -19,7 +19,7 @@ if len(sys.argv) == 5:
 print("creating featherkit project " + name)
 
 for root, subFolders, files in os.walk(new_module_dir,topdown=False):
-  this_folder = os.path.join(target_dir, root)
+  this_folder = root
   for single_file in files:
     this_file = os.path.join(this_folder, single_file)
     this_file_tmp = this_file + ".tmp"
@@ -41,4 +41,4 @@ for root, subFolders, files in os.walk(new_module_dir,topdown=False):
       this_file_renamed = os.path.join(this_folder, single_file_renamed)
       os.rename(this_file, this_file_renamed)
 
-os.rename(new_module_dir, name)
+os.rename(new_module_dir, os.path.join(target_dir ,name))

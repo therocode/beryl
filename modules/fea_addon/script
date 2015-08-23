@@ -24,7 +24,7 @@ if not os.path.isfile(cmake_file):
 print("creating featherkit addon " + name)
 
 for root, subFolders, files in os.walk(new_module_dir,topdown=False):
-  this_folder = os.path.join(target_dir, root)
+  this_folder = root
   for single_file in files:
     this_file = os.path.join(this_folder, single_file)
     this_file_tmp = this_file + ".tmp"
@@ -55,4 +55,4 @@ with open(cmake_file, "a") as c_file:
   c_file.write("endif()\n")
   c_file.close()
 
-os.rename(new_module_dir, name)
+os.rename(new_module_dir, os.path.join(target_dir, name))
