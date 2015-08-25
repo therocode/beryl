@@ -4,7 +4,7 @@
 
 __BERYL_CNAME__::__BERYL_CNAME__() :
     mWindow(new fea::SDL2WindowBackend(), fea::VideoMode(__BERYL_XRES__, __BERYL_YRES__), "__BERYL_CNAME__"),
-    mRenderer(fea::Viewport({__BERYL_XRES__, __BERYL_YRES__}, {0, 0}, fea::Camera({__BERYL_XRES__ / 2.0f, __BERYL_YRES__ / 2.0f}))),
+    mFeaRenderer(fea::Viewport({__BERYL_XRES__, __BERYL_YRES__}, {0, 0}, fea::Camera({__BERYL_XRES__ / 2.0f, __BERYL_YRES__ / 2.0f}))),
     mFeaInputHandler(new fea::SDL2InputBackend()),
     mInputHandler(mBus, mFeaInputHandler),
     mAudioPlayer(mBus),
