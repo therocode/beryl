@@ -5,6 +5,7 @@
 #include "inputhandler.hpp"
 #include "messages.hpp"
 #include "audioplayer.hpp"
+#include "renderer.hpp"
 
 class __BERYL_CNAME__ : public fea::Application,
     public fea::MessageReceiver<QuitMessage>
@@ -14,13 +15,14 @@ class __BERYL_CNAME__ : public fea::Application,
         ~__BERYL_CNAME__();
         void handleMessage(const QuitMessage& message) override;
     protected:
-        virtual void loop() override;
+        void loop() override;
     private:
         fea::MessageBus mBus;
         fea::Window mWindow;
-        fea::Renderer2D mRenderer;
+        fea::Renderer2D mFeaRenderer;
         fea::InputHandler mFeaInputHandler;
 
         InputHandler mInputHandler;
         AudioPlayer mAudioPlayer;
+        Renderer mRenderer;
 };
