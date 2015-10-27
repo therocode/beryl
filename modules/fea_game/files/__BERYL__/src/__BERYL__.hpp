@@ -12,7 +12,6 @@ class __BERYL_CNAME__ : public fea::Application,
 {
     public:
         __BERYL_CNAME__();
-        ~__BERYL_CNAME__();
         void handleMessage(const QuitMessage& message) override;
     protected:
         void loop() override;

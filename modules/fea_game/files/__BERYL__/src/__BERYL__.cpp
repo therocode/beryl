@@ -13,12 +13,7 @@ __BERYL_CNAME__::__BERYL_CNAME__() :
     mWindow.setVSyncEnabled(true);
     mWindow.setFramerateLimit(60);
 
-    mBus.addSubscriber<QuitMessage>(*this);
-}
-
-__BERYL_CNAME__::~__BERYL_CNAME__()
-{
-    mBus.removeSubscriber<QuitMessage>(*this);
+    subscribe(mBus, *this, false);
 }
 
 void __BERYL_CNAME__::handleMessage(const QuitMessage& message)
