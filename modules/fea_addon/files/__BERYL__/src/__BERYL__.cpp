@@ -36,7 +36,9 @@ void __BERYL_CNAME__::handleInput()
         }
         else if(event.type == fea::Event::RESIZED)
         {
-            mRenderer.setViewport(fea::Viewport({event.size.width, event.size.height}, {0, 0}, fea::Camera({event.size.width / 2.0f, event.size.height / 2.0f})));
+            float w = (float)event.size.width / 2.0f;
+            float h = (float)event.size.height / 2.0f;
+            mRenderer.setViewport(fea::Viewport({event.size.width, event.size.height}, {0, 0}, fea::Camera({w, h})));
         }
         else if(event.type == fea::Event::MOUSEBUTTONPRESSED)
         {

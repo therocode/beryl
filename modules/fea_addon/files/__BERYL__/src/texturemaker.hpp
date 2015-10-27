@@ -19,6 +19,6 @@ static fea::Texture makeTexture(const std::string& path, bool smooth = false, bo
 
     //the pixels are now in the vector "image", 4 bytes per pixel, ordered RGBARGBA..., use it as texture, draw it, ...
     fea::Texture texture;
-    texture.create(width, height, &image[0], smooth, interactive);
+    texture.create({width, height}, &image[0], smooth, interactive);
     return texture;
 }
